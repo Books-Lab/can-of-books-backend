@@ -29,4 +29,6 @@ app.get('/test', (request, response) => {
 
 });
 
+app.delete('/books/:id', bookHandler.deleteBook);
+
 app.listen(PORT, () => console.log(`listening on ${PORT}`));

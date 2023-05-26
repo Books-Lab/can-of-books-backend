@@ -20,4 +20,12 @@ bookHandler.postBooks = function (req, res, next) {
     .catch(err => next(err));
 };
 
+bookHandler.deleteBook = function(req, res, next){
+  const {id} = req.params;
+  console.log(id);
+  Book.findByIdAndDelete(id)
+    .then(deletedBook => res.status(200).send(deletedBook))
+    .catch(err => next(err));
+};
+
 module.exports = bookHandler;

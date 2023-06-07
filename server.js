@@ -5,10 +5,12 @@ const express = require('express');
 const cors = require('cors');
 const { default: mongoose } = require('mongoose');
 const bookHandler = require('./Modules/bookHandler');
+const verifyUser = require('./Modules/Authorize');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(verifyUser)
 
 const PORT = process.env.PORT || 3001;
 
